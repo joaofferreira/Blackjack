@@ -1,91 +1,71 @@
-*{
-    box-sizing:content-box!important;
+html {
+  overflow-x: hidden;
 }
 
-body{
-  background-color: #306A40;
-  background-image:  linear-gradient(135deg, #40842f 25%, transparent 25%), linear-gradient(225deg, #40842f 25%, transparent 25%), linear-gradient(45deg, #40842f 25%, transparent 25%), linear-gradient(315deg, #40842f 25%, #026514 25%);
+* {
+  box-sizing: content-box !important;
+}
+
+body {
+  background-color: #306a40;
+  background-image: linear-gradient(135deg, #40842f 25%, transparent 25%),
+    linear-gradient(225deg, #40842f 25%, transparent 25%),
+    linear-gradient(45deg, #40842f 25%, transparent 25%),
+    linear-gradient(315deg, #40842f 25%, #026514 25%);
   background-size: 2px 2px;
   background-repeat: repeat;
 }
 
-h1,h2,h3,h4,p{
-    color: white;
-
+h1,
+h2,
+h3,
+h4,
+p {
+  color: white;
 }
 
-ul{
-    height: 100px;
+ul {
+  height: 100px;
 }
 
-.slide{
-  animation: slidein 1s;
-  animation-fill-mode: forwards;
-}
-@keyframes slidein {
-  from {
-    margin-left: var(--m, 0px);
-  }
-  to {
-    margin-left: var(--f, -150px);
-  }
-}
-
-
-
-/* This container is needed to position the front and back side */
-.flip-card-inner {
-   position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  
-
-
-li{
+li {
   list-style-type: none;
 }
 
+.mt-100 {
+  margin-top: 100px;
+}
 
+.slide {
+  animation: slidein 1s;
+  animation-fill-mode: forwards;
+}
 
-  @keyframes appear {
-    from {transform: translateY(-1000px) ;}
-    to {transform: translateY(0px);}
-  }
+@keyframes slidein {  
+  from {margin-left: 0px;}
+  to {margin-left: var(--f, -150px);}
+}
 
-  @keyframes flip {
-    from {transform: rotateY(0deg) ;}
-    to {transform: rotateY(180deg);}
-  }
+.disappear {
+  animation: disappear 2s linear;
+  opacity: 0%;
+}
 
- 
-  /* Position the front and back side */
-  .flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-  }
+@keyframes disappear {
+  0% {opacity: 100%;}
+  100% {opacity: 100%;}
+}
 
-  .flip-card-back {
-    transform: rotateY(180deg);
+@keyframes appear {
+  from {
+    transform: translateY(-1000px);
   }
+  to {
+    transform: translateY(0px);
+  }
+}
 
-  .disappear{
-    animation: disappear 2s linear;
-    opacity: 0%;
-  }
-  
-  @keyframes disappear {
-    0% {opacity: 100%;}
-    100% {opacity: 100%;}
-  }
-  
-
-  .mt-100{
-margin-top: 100px;
-  }
+@keyframes flip {
+  from {transform: rotateY(0deg);}
+  to {transform: rotateY(180deg);}
+}
