@@ -46,6 +46,8 @@ function clear() {
   string+="</li>";
   
   document.getElementById("dealer").innerHTML =  string;
+  document.getElementById("dealerPoints").innerHTML =  "Points: ??";
+  document.getElementById("playerPoints").innerHTML =  "Points: ";
   document.getElementById("player").innerHTML =  " ";
 }
 
@@ -67,12 +69,12 @@ function update_dealer_points() {
   let result=" ";
    if (minDealerPoints>21) {
       game.state.gameEnded=true;
-      result += " Rebentou";
+      result += " Busted";
     }else if (game.state.dealerWon || (maxDealerPoints>21?minDealerPoints:maxDealerPoints) > (maxPlayerPoints>21?minPlayerPoints:maxPlayerPoints)){
       game.state.gameEnded=true;
-      result += " Ganhou ";
+      result += " The dealer Won! ";
     } else {
-        result += " Perdeu";
+        result += " The dealer Lost!";
     }
 
   document.getElementById("dealerPoints").innerHTML = ("Points:"+ points +" "+result); 
@@ -206,11 +208,11 @@ function update_player_points() {
   let result=" ";
   if (game.state.gameEnded) {
    if (game.state.playerBusted) {
-      result += " Rebentou";
+      result += " Busted!";
     }else if ((maxPlayerPoints>21?minPlayerPoints:maxPlayerPoints) > (maxDealerPoints>21?minDealerPoints:maxDealerPoints)|| minDealerPoints>21){
-      result += " Ganhou ";
+      result += " You won!";
     } else {
-        result += " Perdeu";
+        result += " You lost!";
     }}
 
   document.getElementById("playerPoints").innerHTML = ("Points:"+ points +" "+result); 
