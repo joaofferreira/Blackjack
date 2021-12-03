@@ -33,6 +33,7 @@ function new_game() {
   buttons_initialization();
   debug(game);
 }
+
 function clear() {
 
   string="<li>";
@@ -43,6 +44,7 @@ function clear() {
   string+="</li>";
   
   document.getElementById("dealer").innerHTML =  string;
+  document.getElementById("player").innerHTML =  " ";
 }
 
 
