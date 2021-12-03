@@ -14,21 +14,9 @@
     <!-- JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!-- Local CSS-->
-    <link rel="stylesheet" type="text/css" href="css/cards.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
-    
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/afb19f58a9.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../css/cards.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+
 
     <title>BlackJack</title>
 </head>
@@ -39,45 +27,62 @@
     </header>
 
     <section id="game">
-        <div class="container text-center mt-5">
-            
-            <div class="playingCards twoColours rotateHand">
-                <ul id="dealer" class="d-flex justify-content-center"  style="transform: translate(-40px);">
-                    <li>
-                        <div class="card" style="position: absolute; transform: translate(-40px) rotate(-3deg);"><span
-                                class="rank"></span>
-                            <span class="suit"></span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="flip-card playingCards twoColours rotateHand">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <div class="card back">*</div>
-                                </div>
-                                <div class="flip-card-back ">
-                                    <div class="card big"><span class="rank"></span><span class="suit"></span></div>
+        <div class="container text-center mt-100">
+                <div class="playingCards twoColours rotateHand">
+                    <ul class="d-flex justify-content-center">
+                        <li>
+                            <div class="card rank-2 diams"
+                                style="position: absolute; transform: translate(-40px) rotate(-3deg);"><span
+                                    class="rank">2</span><span class="suit">&diams;</span></div>
+                        </li>
+                        <li>
+                            <div class="flip-card playingCards twoColours rotateHand">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card back">*</div>
+                                    </div>
+                                    <div class="flip-card-back ">
+                                        <div class="card big joker"><span class="rank">+</span><span class="suit">Joker</span></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <h1>Dealer</h1>
-            <p id="dealerPoints">Points: ??</p>
-                <div class="playingCards twoColours rotateHand  mt-100">
-                    <ul id="player" class="d-flex justify-content-center"  style="transform: translate(-20px);">
+                        </li>
                     </ul>
                 </div>
-            <h1>Player</h1>
-            <p id="playerPoints">Points</p>
+            <h1>Dealer</h1>
+            <p id="dealerPoints">Points: 10</p>
 
-            <div class="text-center buttons mt-5">
-                <button id="card" class="btn btn-warning" type="button" onclick="player_new_card()">Card</button>
-                <button id="stand" class="btn btn-danger" type="button" onclick="dealer_finish()">Stand</button>
-                <button id="new_game" class="btn btn-secondary" type="button" onclick="new_game()" disabled>New
-                    Game</button>
-            </div>
+            <section id="player" style="margin-top: 100px;">
+                <div class="playingCards twoColours rotateHand">
+                    <ul class="d-flex justify-content-center">
+                        <li>
+                            <div class="card rank-2 diams"
+                                style="position: absolute; transform: translate(-40px) rotate(-3deg);"><span
+                                    class="rank">2</span><span class="suit">&diams;</span></div>
+                        </li>
+                        <li>
+                            <div class="card rank-2 diams"
+                                style="position: absolute;"><span
+                                    class="rank">2</span><span class="suit">&diams;</span></div>
+                        </li>
+                        <li>
+                            <div class="card rank-2 diams"
+                                style="position: absolute; transform: translate(40px) rotate(3deg);"><span
+                                    class="rank">2</span><span class="suit">&diams;</span></div>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </section>
+            <h1>Player</h1>
+            <p id="playerPoints">Points: 10</p>
+
+        </div>
+        <div class="text-center buttons mt-5">
+            <button id="card"  class="btn btn-warning" type="button" onclick="player_new_card()">Card</button>
+            <button id="stand"  class="btn btn-danger" type="button" onclick="dealer_finish()">Stand</button>
+            <button id="new_game"  class="btn btn-secondary" type="button" onclick="new_game()" disabled>New Game</button>
+        </div>
     </section>
 
     <section id="sec_debug" class="mt-5">
@@ -334,16 +339,20 @@
     </div>
 
 
-    <div class="flip-card playingCards twoColours rotateHand">
+    <div class="playingCards twoColours">
         <div class="flip-card-inner">
             <div class="flip-card-front">
                 <div class="card back">*</div>
+
             </div>
             <div class="flip-card-back ">
                 <div class="card big joker"><span class="rank">+</span><span class="suit">Joker</span></div>
+
             </div>
         </div>
     </div>
+
+
 </body>
 
 </html>
