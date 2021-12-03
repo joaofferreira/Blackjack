@@ -29,6 +29,8 @@ function new_game() {
   game = new BlackJack();
   dealer_new_card(true);
   dealer_new_card(true);
+  nPlayerCards=0;
+  nDealerCards=0;
   player_new_card();
   buttons_initialization();
   debug(game);
@@ -146,6 +148,7 @@ function update_player(state) {
   let playerCards = game.get_player_cards();
   let string = "";
 
+  console.log("game.get_game_state()"+game.get_game_state());
 
   document.querySelector("#player").classList.add("slide");
   document.querySelector('#player').style.setProperty('--f','-'+60*(nPlayerCards+1)+'px');
