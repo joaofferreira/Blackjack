@@ -3,6 +3,9 @@
 let game = null;
 var nDealerCards=0;
 var nPlayerCards=0;
+var step=3;
+var grausPlayer=-3;
+
 
 function debug(an_object) {
   document.getElementById("debug").innerHTML = JSON.stringify(an_object);
@@ -30,6 +33,8 @@ function new_game() {
   dealer_new_card(true);
   dealer_new_card(true);
   nPlayerCards=0;
+  step=3;
+  grausPlayer=-3;
   player_new_card();
   player_new_card();
   buttons_initialization();
@@ -80,7 +85,6 @@ function update_dealer_points() {
   document.getElementById("dealerPoints").innerHTML = ("Points:"+ points +" "+result); 
 }
 
-var step=3;
 
 function update_dealer(state, show) {
   let cartasDealer = game.get_dealer_cards();
@@ -144,7 +148,6 @@ function update_dealer(state, show) {
 
 }
 
-var grausPlayer=-3;
 
 function update_player(state) {
   let playerCards = game.get_player_cards();
