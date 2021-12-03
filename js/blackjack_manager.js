@@ -30,7 +30,6 @@ function new_game() {
   dealer_new_card(true);
   dealer_new_card(true);
   nPlayerCards=0;
-  nDealerCards=0;
   player_new_card();
   buttons_initialization();
   debug(game);
@@ -39,7 +38,7 @@ function new_game() {
 function clear() {
 
   string="<li>";
-  string+="<div class='card' style='position: absolute; transform: translate(-40px) rotate(-3deg);'><span class='rank'></span><span class='suit'></span></div>";
+  string+="<div class='card' style='position: absolute; transform: translate(-40px);'><span class='rank'></span><span class='suit'></span></div>";
   string+="</li>";
   string+="<li>";
   string+="<div class='flip-card playingCards twoColours rotateHand'><div class='flip-card-inner'><div class='flip-card-front'><div class='card back'>*</div></div><div class='flip-card-back '><div class='card big'><span class='rank'></span><span class='suit'></span></div></div></div></div>";
@@ -120,7 +119,7 @@ function update_dealer(state, show) {
       let rank = cartasDealer[index].rank;
       graus+=3;
       string +=
-        "<li style='animation:appear "+nDealerCards+"s ease;'><div style='position: absolute; transform: translate("+(nDealerCards-1)*40+"px) translateY("+(graus-5)+"px) rotate("+graus+"deg);' class='card rank-" +
+        "<li style='animation:appear "+nDealerCards+"s ease;'><div style='position: absolute; transform: translate("+(nDealerCards-1)*40+"px) translateY("+(graus-5)+"px);' class='card rank-" +
         rank +
         " " +
         suit +
@@ -159,7 +158,7 @@ function update_player(state) {
     let suit = playerCards[index].suit;
     let rank = playerCards[index].rank;
     string +=
-      "<li style='animation:appear "+(2)+"s ease;'><div style='position: absolute; transform: translate("+(nPlayerCards)*40+"px) translateY("+(grausPlayer*0.5)+"px) rotate("+grausPlayer+"deg);' class='card rank-" +
+      "<li style='animation:appear "+(2)+"s ease;'><div style='position: absolute; transform: translate("+(nPlayerCards)*40+"px) translateY("+(grausPlayer*0.5)+"px);' class='card rank-" +
       rank +
       " " +
       suit +
