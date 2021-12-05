@@ -1,3 +1,6 @@
+/*https://www.cdnfonts.com/casino.font*/
+@import url('http://fonts.cdnfonts.com/css/casino');
+
 html {
   overflow-x: hidden;
 }
@@ -14,6 +17,11 @@ body {
     linear-gradient(315deg, #40842f 25%, #026514 25%);
   background-size: 2px 2px;
   background-repeat: repeat;
+}
+
+.result{
+  font-family: 'Casino 3D Lines', sans-serif;
+  /*font-family: 'Casino Flat Shadow', sans-serif;*/
 }
 
 h1,
