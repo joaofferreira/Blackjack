@@ -71,14 +71,31 @@ function update_dealer_points() {
     if (minDealerPoints > 21) {
         game.state.gameEnded = true;
         result += " Busted";
+        showResult(true);
+
     } else if (game.state.dealerWon || (maxDealerPoints > 21 ? minDealerPoints : maxDealerPoints) > (maxPlayerPoints > 21 ? minPlayerPoints : maxPlayerPoints)) {
         game.state.gameEnded = true;
         result += " The dealer Won! ";
+        showResult(false);
+
     } else {
         result += " The dealer Lost!";
-    }
+        showResult(true);
+            }
 
     document.getElementById("dealerPoints").innerHTML = ("Points:" + points + " " + result);
+}
+
+function showResult(playerWon) {
+  if (playerWon){
+    string=       " <div id='result' class='result text-warning'>You Won!</div>"      
+
+  }else{
+    string=       " <div id='result' class='result text-danger'>You Lost!</div>"      
+
+  }
+  document.getElementById("game").insertAdjacentHTML("afterend",string);
+
 }
 
 function update_dealer(state, show) {
@@ -188,10 +205,16 @@ function update_player_points() {
     if (game.state.gameEnded) {
         if (game.state.playerBusted) {
             result += " Busted!";
+            showResult(false);
+
         } else if ((maxPlayerPoints > 21 ? minPlayerPoints : maxPlayerPoints) > (maxDealerPoints > 21 ? minDealerPoints : maxDealerPoints) || minDealerPoints > 21) {
             result += " You won!";
+            showResult(true);
+
         } else {
             result += " You lost!";
+            showResult(false);
+
         }
     }
 
