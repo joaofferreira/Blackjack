@@ -1,5 +1,5 @@
 /*https://www.cdnfonts.com/casino.font*/
-@import url('http://fonts.cdnfonts.com/css/casino');
+@import url('../fonts/casino.css');
 
 html {
   overflow-x: hidden;
