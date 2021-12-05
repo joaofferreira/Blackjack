@@ -18,6 +18,7 @@ function buttons_initialization() {
 }
 
 function finalize_buttons() {
+  console.log("finalizar");
   document.getElementById("card").disabled = true;
   document.getElementById("stand").disabled = true;
   document.getElementById("new_game").disabled = false;
@@ -29,6 +30,7 @@ function new_game() {
 //document.getElementById("dealer").innerHTML =  "";
 //document.getElementById("player").innerHTML = "";
   clear();
+  buttons_initialization();
   game = new BlackJack();
   dealer_new_card(true);
   dealer_new_card(true);
@@ -37,7 +39,6 @@ function new_game() {
   grausPlayer=-3;
   player_new_card();
   player_new_card();
-  buttons_initialization();
   debug(game);
 }
 
@@ -120,8 +121,6 @@ function update_dealer(state, show) {
     document.querySelector('#dealer').style.setProperty('--f','-'+20*nDealerCards+'px');
 
     for (let index = nDealerCards; index < cartasDealer.length; index++) {
-      console.log("ipddatesnidkcasmkodas");
-
       let suit = cartasDealer[index].suit;
       let rank = cartasDealer[index].rank;
       string +=
@@ -159,12 +158,10 @@ function update_player(state) {
   document.querySelector('#player').style.setProperty('--f','-'+60*(nPlayerCards+1)+'px');
 
   for (let index = nPlayerCards; index < playerCards.length; index++) {
-    console.log("ipddatesnidkcasmkodas");
-
     let suit = playerCards[index].suit;
     let rank = playerCards[index].rank;
     string +=
-      "<li style='animation:appear "+(2+nPlayerCards)+"s ease;'><div style='position: absolute; transform: translate("+(nPlayerCards)*40+"px) translateY("+(grausPlayer*0.8)+"px);' class='card rank-" +
+      "<li style='animation:appear "+(1.5+(nPlayerCards==0?0:1))+"s ease;'><div style='position: absolute; transform: translate("+(nPlayerCards)*40+"px) translateY("+(grausPlayer*0.8)+"px);' class='card rank-" +
       rank +
       " " +
       suit +
@@ -240,6 +237,7 @@ function reveal(){
   document.querySelector(".flip-card-inner").style.animation= ("flip 3s  ease");
   document.querySelector(".flip-card-inner").style.transform= ("rotateY(180deg)");
   document.querySelector(".flip-card-front").classList.add("disappear");
+  finalize_buttons();
 }
 
 function dealer_finish() {
@@ -257,6 +255,4 @@ function dealer_finish() {
     dealer_new_card();
   }
   update_player_points();
-  finalize_buttons();
-
 }
