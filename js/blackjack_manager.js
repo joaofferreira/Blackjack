@@ -81,21 +81,18 @@ function update_dealer_points() {
     } else {
         result += " The dealer Lost!";
         showResult(true);
-            }
+    }
 
     document.getElementById("dealerPoints").innerHTML = ("Points:" + points + " " + result);
 }
 
 function showResult(playerWon) {
-  if (playerWon){
-    string=       " <div id='result' class='result text-warning'>You Won!</div>"      
-
-  }else{
-    string=       " <div id='result' class='result text-danger'>You Lost!</div>"      
-
-  }
-  document.getElementById("game").insertAdjacentHTML("afterend",string);
-
+    if (playerWon) {
+        string = " <div id='result' class='result text-warning'>You Won!</div>"
+    } else {
+        string = " <div id='result' class='result text-danger'>You Lost!</div>"
+    }
+    document.getElementById("game").insertAdjacentHTML("afterend", string);
 }
 
 function update_dealer(state, show) {
