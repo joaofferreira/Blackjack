@@ -83,7 +83,7 @@ function update_dealer_points() {
         showResult(true);
     }
 
-    document.getElementById("dealerPoints").innerHTML = ("Points:" + points + " " + result);
+    document.getElementById("dealerPoints").innerHTML = ("Points: " + points + " " + result);
 }
 
 function showResult(playerWon) {
@@ -215,7 +215,7 @@ function update_player_points() {
         }
     }
 
-    document.getElementById("playerPoints").innerHTML = ("Points:" + points + " " + result);
+    document.getElementById("playerPoints").innerHTML = ("Points: " + points + " " + result);
 }
 
 function dealer_new_card(show) {
