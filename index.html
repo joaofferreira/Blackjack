@@ -331,4 +331,49 @@
     </div>
 </body>
 
+    
+    
+    
+    <form name="contact" method="post" netlify>
+            <input
+              placeholder="Name"
+              class="input"
+              name="name"
+              type="text"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+            <input
+              placeholder="Email"
+              class="input"
+              name="email"
+              type="text"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+            <input
+              placeholder="Subject"
+              class="input"
+              name="subject"
+              type="text"
+              value={this.state.subject}
+              onChange={this.handleChange}
+            />
+            <textarea
+              placeholder="Message"
+              name="message"
+              value={this.state.message}
+              onChange={this.handleChange}
+            />
+            <div data-netlify-recaptcha="true"></div>
+            <button type="submit">
+              <a href="javascript:void(0);" class="parallelogram center">
+                <div class="orange_detail"></div>
+                <div class="text">Send</div>
+              </a>
+            </button>
+          </form>
+    
+    
+    
 </html>
